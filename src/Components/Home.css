@@ -1,0 +1,107 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+}
+
+.nav-menu {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu li {
+    cursor: pointer;
+}
+
+.name {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.name img { 
+    border-radius: 50%; 
+    width: 250px; 
+    height: 250px; 
+    object-fit: cover; 
+}
+
+.name h1 {
+    font-size: 2em;
+    margin-top: 20px;
+}
+
+.name p {
+    font-size: 1.2em;
+    color: #666;
+    width: 60%;
+    margin: 20px auto;
+}
+
+.nav-connect,
+.nav-connect-two {
+    padding: 20px 40px;
+    border-radius: 50px;
+    background: linear-gradient(267deg, #da7c25 0.36%, #B923E1 102.06%);
+    font-size: 22px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline */
+}
+
+.nav-connect a,
+.nav-connect a:link,
+.nav-connect a:visited,
+.nav-connect a:hover,
+.nav-connect a:active,
+.nav-connect-two a,
+.nav-connect-two a:link,
+.nav-connect-two a:visited,
+.nav-connect-two a:hover,
+.nav-connect-two a:active {
+    text-decoration: none; /* Ensure links inside nav-connect and nav-connect-two are without underline */
+    color: inherit; /* Ensure the link takes the color of the nav-connect and nav-connect-two */
+}
+
+.name h1 span{ 
+    font-size: 2em; 
+    margin-top: 20px; 
+    background: linear-gradient(267deg, #da7c25 0.36%, #B923E1 102.06%);
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    animation: fadeInOut 4s infinite;
+    font-size: 90px;
+    font-weight: 600;
+} 
+.name h1{
+    font-size: 90px;
+    font-weight: 600;
+}
+
+@keyframes fadeIn{ 
+    0% { opacity: 0; } 
+    50% { opacity: 1; } 
+    100% { opacity: 0; } 
+}
+
+.name p { 
+    font-size:29px; 
+    text-align: center;
+    line-height: 40px;
+    color:white; 
+    width: 50%; 
+    margin: 20px auto; 
+    font-family: 'Times New Roman', Times, serif;
+}
+.nav-connect-two{
+    margin-left: 45%;
+    margin-right: 45%;
+    width: 200px;
+    align-items: center;
+    padding-left: 105px;
+    padding-right: 18px;
+    color: rgb(8, 8, 8);
+    text-size-adjust: 30px;
+}
