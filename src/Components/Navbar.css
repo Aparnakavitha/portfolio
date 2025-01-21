@@ -1,0 +1,37 @@
+.navbar {
+    background-color: transparent;  /* Transparent background */
+    position: fixed;                /* Fix the navbar at the top */
+    top: 0;                         /* Top of the page */
+    left: 0;
+    width: 100%;                    /* Ensure the navbar spans across the full width */
+    padding: 20px 0;                /* Increased padding for larger navbar size */
+    z-index: 1000;                  /* Keeps navbar above all other content */
+}
+
+.nav-menu {
+    list-style: none;               /* Removes default list styling */
+    display: flex;                  /* Flexbox for layout */
+    justify-content: flex-start;    /* Align items to the left */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    margin-right: 25px;             /* Increased spacing between items */
+}
+
+.nav-menu li a {
+    color: white;                   /* White text color for links */
+    font-size: 35px;                /* Increased font size */
+    font-weight: bold;              /* Make the text bold */
+    text-decoration: none;          /* Removes underline */
+    padding: 12px 16px;             /* Increased padding for larger links */
+    transition: all 0.3s ease;      /* Smooth transition for hover effect */
+}
+
+.nav-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Subtle background color on hover */
+    color: #da7c25;                  /* Change text color on hover */
+    border-radius: 5px;              /* Round the corners */
+    transform: scale(1.1);           /* Slightly enlarge the link on hover */
+}

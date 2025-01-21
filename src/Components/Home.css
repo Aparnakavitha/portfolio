@@ -1,10 +1,13 @@
 .navbar {
-    display: flex;
+    position: fixed;
+    top: 0; 
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: #333;
     color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .nav-menu {
@@ -32,7 +35,9 @@
 .name h1 {
     font-size: 2em;
     margin-top: 20px;
+    margin-left: 20px;
 }
+
 
 .name p {
     font-size: 1.2em;
@@ -75,6 +80,16 @@
     font-size: 90px;
     font-weight: 600;
 } 
+.name h3 span {
+    font-size: 3em; /* Reduced font size */
+    margin-top: 20px; 
+    background: white;
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    animation: fadeInOut 4s infinite;
+    font-weight: 600;
+}
+
 .name h1{
     font-size: 90px;
     font-weight: 600;
@@ -95,13 +110,32 @@
     margin: 20px auto; 
     font-family: 'Times New Roman', Times, serif;
 }
-.nav-connect-two{
-    margin-left: 45%;
-    margin-right: 45%;
-    width: 200px;
-    align-items: center;
-    padding-left: 105px;
-    padding-right: 18px;
-    color: rgb(8, 8, 8);
-    text-size-adjust: 30px;
+.container {
+    text-align: center;
 }
+
+.nav-connect, .nav-connect-two {
+    width: 9%;
+    height: 3%;
+    display: inline-block;
+    background: linear-gradient(to right, #ff7e5f, #feb47b);
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    margin: 10px  80px; /* Space between the buttons */
+    
+    transition: background 0.3s;
+}
+
+.nav-connect:hover, .nav-connect-two:hover {
+    background: linear-gradient(to right, #feb47b, #ff7e5f);
+}
+.nav-connect{
+    margin-left: 30%;
+}
+
+
+
+  

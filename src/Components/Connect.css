@@ -1,0 +1,132 @@
+/* Page container for two sections */
+.page-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    background-color: black;
+}
+
+/* Left section styling */
+.left-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* Updated for vertically stacking h2 and email */
+    justify-content: flex-start; 
+    align-items: flex-start;
+    height: 60vh;
+    padding-left: 20px;
+}
+
+/* Styling for h2 */
+h2 {
+    font-size: 80px;
+    background: linear-gradient(267deg, #da7c25 0.36%, #B923E1 102.06%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInOut 4s infinite;
+    font-weight: 900;
+    margin: 0;
+}
+/* Styling for the email section */
+.email {
+    font-size: 20px;
+    color: white;  /* Ensure the text color is white */
+    margin-top: 15px;
+    text-align: left;  /* Align text to the left for better positioning */
+}
+
+.email-link {
+    font-size: 20px;  /* Match the font size */
+    color: #00aaff;  /* Blue color for the email link */
+    text-decoration: none;  /* Remove underline */
+    font-weight: bold;  /* Make the link text bold */
+}
+
+.email-link:hover {
+    text-decoration: underline;  /* Underline the link on hover */
+}
+
+/* Optional: You can add margin or padding adjustments as needed to control spacing */
+.email a {
+    margin-left: 5px;  /* Add some spacing between the "reach out" text and the email */
+}
+
+
+/* Styling for email */
+.email {
+    font-size: 20px;
+    color: white;
+    margin-top: 25px;
+    margin-left: 35px;
+}
+
+/* Right section styling */
+.right-section {
+    flex: 1;
+    height: 60vh;
+    padding-right: 60px;
+}
+
+form {
+    width: 60%;
+}
+
+.form-group {
+    margin-top: 25px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #807e7e;
+    border-radius: 35px;
+    background-color: #1f1d1d;
+    color: #fff;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: white;
+    padding: 15px;
+}
+
+/* Button styling */
+.button {
+    width: 100%;
+    padding: 15px;
+    color: black;
+    background: linear-gradient(267deg, #da7c25 0.36%, #B923E1 102.06%);
+    border: none;
+    border-radius: 35px;
+    cursor: pointer;
+    margin-top: 25px;
+    margin-left: 20px;
+}
+
+.button:hover {
+    background: linear-gradient(267deg, #B923E1 0.36%, #da7c25 102.06%);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .page-container {
+        flex-direction: column;
+    }
+
+    .left-section,
+    .right-section {
+        flex: none;
+        width: 100%;
+    }
+
+    form {
+        width: 100%;
+    }
+}

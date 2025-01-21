@@ -1,0 +1,78 @@
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    padding: 40px;
+    /* background-color: #f7f7f7; */
+     /* Light background color for contrast */
+  }
+  
+  .left-section {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .profile-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px; /* Optional, for rounded corners */
+  }
+  
+  .right-section {
+    flex: 2;
+    padding: 20px;
+  }
+  
+  .intro {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  .intro h2{
+    color:  linear-gradient(267deg, #da7c25 0.36%, #B923E1 102.06%);
+  }
+  
+  .highlighted-text {
+    font-size: 30px;
+    font-weight: 700;
+    color: #3498db; /* Highlight color for the first sentence */
+  }
+  
+  .right-section p {
+    font-size: 20px;
+    color:white;
+    line-height: 1.6;
+
+  }
+  
+  .right-section p:not(:first-child) {
+    margin-top: 20px;
+  }
+
+  
+  
+ 
+  .footer {
+    display: flex;
+    justify-content: center; /* Center the icons horizontally */
+    align-items: center;    /* Vertically align the icons */
+    gap: 50px;              /* Space between the icons */
+    flex-wrap: nowrap;      /* Prevent icons from wrapping */
+    margin-top: 100px;      /* Add spacing above the footer */
+    padding: 15px 0;        /* Padding for top and bottom */
+}
+
+.social-icon {
+    font-size: 50px;        /* Increased size of the icons */
+    color: white;           /* Default white color for the icons */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover transition */
+}
+
+.social-icon:hover {
+    color: #ff6347;         /* Slight reddish tint for all icons on hover */
+    transform: scale(1.2);  /* Enlarge slightly on hover */
+}
+
+   
+  
