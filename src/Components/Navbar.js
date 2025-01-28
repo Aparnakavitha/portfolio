@@ -1,16 +1,39 @@
- import './Navbar.css'
-import React from 'react';
-import { Link } from 'react-router-dom';  // Using Link for SPA routing
+import React, { useState } from 'react';
+import './Navbar.css';
+import { NavLink } from 'react-router-dom';
+import { FaBars, FaTimes } from 'react-icons/fa'; // Import icons
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div className="navbar">
-      <ul className="nav-menu">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About Me</Link></li>
-        <li><Link to="/projects">Projects</Link></li>
-        <li><Link to="/contact">Contact</Link></li>
-      </ul>
+      <div className="nav-container">
+        <div className="nav-icon" onClick={toggleMenu}>
+          {isMenuOpen ? <FaTimes /> : <FaBars />}
+        </div>
+        <ul className={`nav-menu ${isMenuOpen ? 'nav-menu-active' : ''}`}>
+          <li>
+            <NavLink to="/" onClick={toggleMenu} className={({ isActive }) => (isActive ? 'active' : '')}>
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/about" onClick={toggleMenu} className={({ isActive }) => (isActive ? 'active' : '')}>
+              About Me
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/projects" onClick={toggleMenu} className={({ isActive }) => (isActive ? 'active' : '')}>
+              Projects
+            </NavLink>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };

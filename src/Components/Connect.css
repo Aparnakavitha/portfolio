@@ -7,6 +7,8 @@
     height: 100vh;
     padding: 20px;
     background-color: black;
+    margin-top: 80px;
+    
 }
 
 /* Left section styling */
@@ -15,20 +17,29 @@
     display: flex;
     flex-direction: column; /* Updated for vertically stacking h2 and email */
     justify-content: flex-start; 
-    align-items: flex-start;
+    align-items: center; /* Updated to center-align horizontally */
     height: 60vh;
-    padding-left: 20px;
+    padding-left: 40px;
+    margin-left: 30px;
 }
 
+
 /* Styling for h2 */
+/* Adjusted styling for the h2 to fit text in one line */
+.left-section h2 {
+    font-size: 60px; /* Reduced font size */
+    width: 100%;
+    text-align: center; /* Center-align the text */
+}
+
 h2 {
     font-size: 80px;
-    background: linear-gradient(267deg, #da7c25 0.36%, #B923E1 102.06%);
+    background-image: linear-gradient(to right, #EE82EE, #9400D3);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: fadeInOut 4s infinite;
     font-weight: 900;
     margin: 0;
+    width: 100%;
 }
 /* Styling for the email section */
 .email {
@@ -40,7 +51,7 @@ h2 {
 
 .email-link {
     font-size: 20px;  /* Match the font size */
-    color: #00aaff;  /* Blue color for the email link */
+    color: #9400D3;  /* Blue color for the email link */
     text-decoration: none;  /* Remove underline */
     font-weight: bold;  /* Make the link text bold */
 }
@@ -67,16 +78,40 @@ h2 {
 .right-section {
     flex: 1;
     height: 60vh;
-    padding-right: 60px;
+    /* padding-right: 60px; */
+    padding-left: 400px;
 }
 
 form {
     width: 60%;
+    margin-left: 100px;
 }
 
 .form-group {
     margin-top: 25px;
+   
+     
 }
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"],
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #807e7e;
+    border-radius: 35px;
+    background-color: #1f1d1d;
+    color: #fff;
+    margin-bottom: 25px; /* Add margin-bottom to create space between input fields */
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: white;
+    padding: 15px;
+}
+
 
 input[type="text"],
 input[type="email"],
@@ -102,16 +137,19 @@ textarea::placeholder {
     width: 100%;
     padding: 15px;
     color: black;
-    background: linear-gradient(267deg, #da7c25 0.36%, #B923E1 102.06%);
-    border: none;
+    background-image: linear-gradient(to right, #EE82EE, #9400D3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border: 2px solid #9400D3;
     border-radius: 35px;
     cursor: pointer;
     margin-top: 25px;
     margin-left: 20px;
+    font-size: 18px;
 }
 
 .button:hover {
-    background: linear-gradient(267deg, #B923E1 0.36%, #da7c25 102.06%);
+    transform: translateY(-5px);
 }
 
 /* Responsive Design */
@@ -130,3 +168,25 @@ textarea::placeholder {
         width: 100%;
     }
 }
+/* Add this at the end of your existing CSS */
+
+.left-section {
+    position: relative;
+    opacity: 0;
+}
+
+.left-section.slide-in {
+    animation: slideIn 2s forwards;
+}
+
+@keyframes slideIn {
+    from {
+        left: -100%;
+        opacity: 0;
+    }
+    to {
+        left: 0;
+        opacity: 1;
+    }
+}
+

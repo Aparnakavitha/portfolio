@@ -1,0 +1,217 @@
+.scrollable-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+  margin-top: 0%;
+}
+
+.section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  padding: 0% 5%;
+  scroll-snap-align: start;
+}
+
+.left {
+  flex: 1;
+  padding-left: 40px;
+  margin-left: 40px;
+}
+
+.right {
+  flex: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-left: 400px;
+}
+
+.left h2 {
+  font-size: 80px;
+  background-image: linear-gradient(to right, #EE82EE, #9400D3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  margin: 0;
+  width: 100%;
+}
+
+.left p {
+  font-size: 20px;
+  color: white;
+  margin-top: 15px;
+  text-align: left;
+}
+
+.right {
+  flex: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding-left: 400px;
+  justify-content: space-around;
+}
+
+.skill-icon {
+  font-size: 5.5rem;
+  padding: 40px;
+  border-radius: 20%;
+  background-color: black;
+  color: white;
+  transition: transform 0.4s ease, background-color 0.5s ease, color 0.5s ease;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.skill-icon:hover {
+  transform: scale(1.2);
+  color: #9400D3;
+}
+
+.education-section {
+  background-color: black;
+}
+
+.education-icon-container {
+  display: flex;
+  gap: 20px;
+}
+
+.education-icon {
+  font-size: 5.5rem;
+  padding: 40px;
+  border-radius: 20%;
+  background-color: black;
+  color: white;
+  transition: transform 0.4s ease, background-color 0.5s ease, color 0.5s ease;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.education-icon:hover {
+  color: #9400D3;
+  transform: scale(1.2);
+}
+
+.education-icon::after {
+  content: attr(title);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 5px;
+  padding: 5px 10px;
+  background-color: #000000;
+  color: #fff;
+  font-size: 15px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.education-icon:hover::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* Certification Section (Mirrored from Education Section) */
+.certification-icon-container {
+  display: flex;
+  gap: 20px;
+}
+
+.certification-icon {
+  font-size: 5.5rem;
+  padding: 40px;
+  border-radius: 20%;
+  background-color: black;
+  color: white;
+  transition: transform 0.4s ease, background-color 0.5s ease, color 0.5s ease;
+  animation: fadeIn 2s ease-in-out;
+  position: relative;
+}
+
+.certification-icon:hover {
+  color: #9400D3;
+  transform: scale(1.2);
+}
+
+.certification-icon::after {
+  content: attr(title);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 5px;
+  padding: 5px 10px;
+  background-color: #000000;
+  color: #fff;
+  font-size: 15px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.certification-icon:hover::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .right {
+    justify-content: center;
+  }
+
+  .skill-icon {
+    font-size: 2.5rem;
+  }
+
+  .certification-icon,
+  .education-icon {
+    font-size: 3rem;
+    padding: 20px;
+  }
+
+  .certification-icon::after,
+  .education-icon::after {
+    font-size: 12px;
+    padding: 5px;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.8s ease-out forwards;
+}

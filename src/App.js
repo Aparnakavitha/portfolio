@@ -7,6 +7,11 @@ import Navbar from "./Components/Navbar";
 import Contact from "./Components/Contact";
 import About from "./Components/About";
 import Projects from "./Components/Projects";
+import Viewmore from "./Components/Viewmore";
+import ProjectDetails from "./Components/ProjectDetails";
+import Skill from './Components/Skill'
+ 
+
 
 
 
@@ -22,7 +27,10 @@ function App() {
     <Route path="/contact" element={<Contact/>}></Route>
     <Route path="/about" element={<About/>}></Route>
     <Route path="/projects" element={<Projects/>}></Route>
-   </Routes>
+    <Route path="/viewmore" element={<Viewmore/>}></Route>
+    <Route path="/projects/:id" element={<ProjectDetails />} />
+    <Route path="/skills" element={<Skill/>}
+></Route>   </Routes>
     </Router>
   );
 }

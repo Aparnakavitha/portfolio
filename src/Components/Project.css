@@ -1,0 +1,279 @@
+/* Projects.css */
+.projects-container {
+    display: flex;
+    justify-content: flex-start;  /* Align items to the left */
+    align-items: flex-start;      /* Align items at the top */
+    gap: 200px;
+    padding: 50px;
+    background-color: #000;       /* Background color is black */
+    flex-wrap: wrap;   
+    margin-top: 10%;           /* Allow wrapping of cards */
+    margin-left: 0%;
+  }
+  
+  .pro {
+    font-size: 80px;
+    background-image: linear-gradient(to right, #EE82EE, #9400D3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+    margin-top: 7%;
+     
+
+  }
+  
+  .map {
+    display: flex; /* This makes sure the project cards are in a row */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    gap: 20px; /* Spacing between the cards */
+  }
+  
+  .project-card {
+    width: 300px;
+    height: 350px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Container for the image */
+  .image-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+  }
+  
+  /* When the card is hovered, blur the image */
+  .project-card:hover .project-img {
+    filter: blur(100px);
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0.2; /* Ensure overlay appears above the image */
+  }
+  
+  /* When the card is hovered, make the overlay visible */
+  .project-card:hover .overlay {
+    opacity: 5;
+  }
+  
+  .project-details {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* When the card is hovered, make the project details visible */
+  .project-card:hover .project-details {
+    opacity: 5;
+  }
+  
+  .project-details h3 {
+    font-size: 24px;
+    margin: 10px 0;
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+  
+  /* When hovered, change the project title color */
+  .project-card:hover .project-details h3 {
+
+    font-size: 30px;
+    /* background-image: linear-gradient(to right, #EE82EE, #9400D3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+    color: white;
+    font-weight: 900;
+  }
+  
+  .view-more {
+   
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 25px; /* Increased border radius */
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    background: transparent;
+    background-image: linear-gradient(to right, #EE82EE, #9400D3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+   
+  }
+  
+  .view-more:hover {
+    background-color: #ff9900;
+  }
+  
+  /* When hovered, make the "View More" button appear */
+  .project-card:hover .view-more {
+    opacity: 1;
+  }
+  /* Add this at the end of your existing CSS */
+/* Add this at the end of your existing CSS */
+
+.pro,.map {
+    position: relative;
+    opacity: 0;
+  }
+  
+  .pro.slide-in-left {
+    animation: slideInLeft 2s forwards;
+  }
+  
+  .map.slide-in-right {
+    animation: slideInRight 2s forwards;
+  }
+
+  .projects-container {
+    padding: 20px;
+    text-align: center;
+    background-color: #080808; /* Light background */
+    min-height: 100vh;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center; /* Vertically align heading and animation */
+    justify-content: flex-start; /* Horizontally align content to the left */
+    margin-bottom: 40px; /* Space between heading+animation and cards */
+    margin-top: 4%; /* Top spacing */
+    padding-left: 20px; /* Align heading padding with other pages */
+  }
+  
+ 
+  
+  .projects-heading {
+    font-size: 3rem;
+    color: #000000;
+    font-weight: bold;
+    margin: 0;
+    text-align: left; /* Ensure the heading aligns left */
+  }
+  
+  /* Cards container */
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Space between cards */
+    justify-content: center;
+    margin-top: 40px; /* Add space between header and cards */
+  }
+  
+  /* Individual card styling */
+  .card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Image container */
+  .image-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .image-container:hover .overlay {
+    opacity: 1;
+  }
+  
+  /* Card title */
+  .card h2 {
+    font-size: 1.5rem;
+    color: #007bff;
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .cards-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .card {
+      width: 90%; /* Full width for smaller screens */
+    }
+  }
+  
+  
+  @keyframes slideInLeft {
+    from {
+      left: -100%;
+      opacity: 0;
+    }
+    to {
+      left: 0;
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideInRight {
+    from {
+      right: -100%;
+      opacity: 0;
+    }
+    to {
+      right: 0;
+      opacity: 1;
+    }
+  }
+  
+
+  

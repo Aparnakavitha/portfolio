@@ -1,31 +1,52 @@
-import React from 'react'
-import './Home.css'
-import {Link} from 'react-router-dom'
-import profile_img from '../Components/images/profile_img.jpeg'
-import { useNavigate } from 'react-router-dom'
-const Home = () => {
-  const navigate=useNavigate()
-  const handleconnect=()=>{
-    navigate('/connect')
-  }
-  return (
-    <div className='back'>
-   
-   <div className='name'>
-    <img src={profile_img} alt=''/>
-    <h1><span>Hi, I'm Aparna K S,</span></h1><br/>
-    <h3><span>frontend Developer</span></h3>
-    <p> "From Electronics and Communication Engineering to Frontend Development,
-       I bring technical expertise and creativity to every project. I’m based in Thiruvananthapuram."</p>
-   </div>
-   <br/>
-   <div className='nav-connect' onClick={handleconnect}>Connect with me</div>
-   <div className='nav-connect-two'><a href="/resume.pdf" target="_blank" >
-        My Resume
-      </a></div>
-    </div>
-    
-  )
-}
+import React, { useEffect } from 'react';
+import './Home.css';
+import profile_img from '../Components/images/A1.png';
+import { useNavigate } from 'react-router-dom';
 
-export default Home
+const Home = () => {
+  const navigate = useNavigate();
+
+  const handleConnect = () => {
+    navigate('/connect');
+  };
+
+  // Use effect to add the slide-in class on mount
+  useEffect(() => {
+    const aparnaElement = document.querySelector('.aparna');
+    if (aparnaElement) {
+      aparnaElement.classList.add('slide-in');
+    }
+  }, []);
+
+  return (
+    <div className="back">
+      <div className="name">
+        <div className="hi">Hi there!</div>
+        <div className="aparna">I am <span>Aparna K S</span></div>
+        <div className="mern">Mern stack Developer</div>
+
+        {/* Buttons */}
+        <div className="buttons">
+          <button className="btn connect" onClick={handleConnect}>
+            Connect Me
+          </button>
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn resume"
+          >
+            Resume
+          </a>
+        </div>
+      </div>
+
+      {/* Right side image */}
+      <div className="image-content">
+        <img src={profile_img} alt="Profile" />
+      </div>
+    </div>
+  );
+};
+
+export default Home;
