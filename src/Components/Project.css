@@ -274,6 +274,76 @@
       opacity: 1;
     }
   }
+  /* Add media queries for responsiveness */
+@media (max-width: 1024px) {
+  .projects-container {
+    padding: 10px;
+    margin-top: 5%; /* Adjust spacing */
+    gap: 20px; /* Reduce gap on medium screens */
+  }
+
+  .cards-container {
+    justify-content: center; /* Center align cards */
+    gap: 15px;
+  }
+
+  .card {
+    width: 300px; /* Adjust card width */
+  }
+
+  .header {
+    flex-direction: column; /* Stack header elements */
+    align-items: center; /* Center align header */
+    padding-left: 0;
+    margin-bottom: 20px;
+    margin-top: 5%;
+  }
+
+  .pro {
+    font-size: 60px; /* Adjust font size for heading */
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-container {
+    padding: 8px;
+    margin-top: 7%; /* Adjust for smaller devices */
+    gap: 10px;
+  }
+
+  .cards-container {
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center;
+  }
+
+  .card {
+    width: 90%; /* Full width on small screens */
+    height: auto; /* Adjust for content height */
+  }
+
+  .pro {
+    font-size: 50px; /* Smaller font for smaller screens */
+    text-align: center;
+    margin-top: 10%;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-container {
+    padding: 5px;
+    margin-top: 15%; /* Extra spacing for very small screens */
+  }
+
+  .card {
+    width: 100%; /* Full width on extra small screens */
+  }
+
+  .pro {
+    font-size: 40px; /* Adjust font size further */
+    margin-top: 15%;
+  }
+}
+
   
 
   

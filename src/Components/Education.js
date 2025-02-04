@@ -8,12 +8,8 @@ const styles = {
     flexDirection: "column",
     alignItems: "center",
     padding: "2rem",
-    backgroundColor:"black"
-  },
-  title: {
-    fontSize: "2rem",
-    color: "#333",
-    marginBottom: "2rem",
+    backgroundColor: "black",
+    marginTop:"10rem",
   },
   grid: {
     display: "grid",
@@ -33,10 +29,6 @@ const styles = {
     backgroundColor: "white",
     transition: "transform 0.3s",
     border: "0.8px solid white",
-    
-  },
-  cardHover: {
-    transform: "translateY(-8px)",
   },
   cardImage: {
     width: "100%",
@@ -56,9 +48,6 @@ const styles = {
     opacity: 0,
     transition: "opacity 0.3s",
   },
-  overlayHover: {
-    opacity: 1,
-  },
   overlayText: {
     color: "white",
     fontSize: "1.25rem",
@@ -77,21 +66,20 @@ const styles = {
   },
 };
 
-const Skill = () => {
-  const [portfolios, setPortfolios] = useState([]);
+const Education = () => {
+  const [educations, setEducations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchPortfolios = async () => {
+    const fetchEducations = async () => {
       try {
-        const response = await fetch("http://localhost:8080/api/skills");
+        const response = await fetch("http://localhost:8080/api/education");
         if (!response.ok) {
-          throw new Error("Failed to fetch portfolios");
+          throw new Error("Failed to fetch education records");
         }
         const data = await response.json();
-        console.log("Fetched Data: ", data);
-        setPortfolios(data);  // store portfolio data in state
+        setEducations(data);
       } catch (err) {
         console.error("Fetch Error: ", err.message);
         setError(err.message);
@@ -100,7 +88,7 @@ const Skill = () => {
       }
     };
 
-    fetchPortfolios();
+    fetchEducations();
   }, []);
 
   if (loading) {
@@ -113,20 +101,18 @@ const Skill = () => {
 
   return (
     <div style={styles.container}>
-      <h1 style={styles.title}>Skill Showcase</h1>
+      
       <div style={styles.grid}>
-        {portfolios.map((portfolio) => (
+        {educations.map((education) => (
           <div
-            key={portfolio.id}
+            key={education.id}
             style={styles.card}
             onMouseEnter={(e) => e.currentTarget.style.transform = "translateY(-8px)"}
             onMouseLeave={(e) => e.currentTarget.style.transform = "translateY(0)"}
           >
-            {/* Render the image dynamically */}
-            {/* Assuming the backend sends base64 data in response */}
             <img
-              src={`data:image/jpeg;base64,${portfolio.image}`} // Assuming base64 data from the backend
-              alt={portfolio.name}
+              src={`data:image/jpeg;base64,${education.image}`}
+              alt={education.name}
               style={styles.cardImage}
               loading="lazy"
             />
@@ -135,7 +121,7 @@ const Skill = () => {
               onMouseEnter={(e) => (e.currentTarget.style.opacity = "1")}
               onMouseLeave={(e) => (e.currentTarget.style.opacity = "0")}
             >
-              <h3 style={styles.overlayText}>{portfolio.name}</h3>
+              <h3 style={styles.overlayText}>{education.name}</h3>
             </div>
           </div>
         ))}
@@ -144,4 +130,4 @@ const Skill = () => {
   );
 };
 
-export default Skill;
+export default Education;

@@ -153,40 +153,117 @@ textarea::placeholder {
 }
 
 /* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 1024px) {
     .page-container {
-        flex-direction: column;
+        flex-direction: column; /* Stack sections vertically */
+        padding: 15px;
+        height: auto;
     }
 
     .left-section,
     .right-section {
-        flex: none;
-        width: 100%;
+        width: 100%; /* Full-width for each section */
+        margin: 0;
+        padding: 0 20px; /* Adjust padding for smaller devices */
+        text-align: center; /* Center content */
+    }
+
+    .right-section {
+        padding-left: 0; /* Remove extra left padding */
+    }
+
+    .left-section h2 {
+        font-size: 50px; /* Smaller font for headings */
+    }
+
+    .email {
+        font-size: 18px;
+        text-align: center;
     }
 
     form {
-        width: 100%;
+        width: 90%; /* Adjust form width */
+        margin: 0 auto; /* Center-align the form */
     }
 }
-/* Add this at the end of your existing CSS */
 
-.left-section {
-    position: relative;
-    opacity: 0;
+@media (max-width: 768px) {
+    .page-container {
+        padding: 10px; /* Reduce overall padding */
+        gap: 20px; /* Add a small gap between sections */
+    }
+
+    .left-section,
+    .right-section {
+        margin: 0 auto; /* Center-align sections */
+        width: 90%; /* Make both sections occupy the same space */
+    }
+
+    .left-section h2 {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .right-section {
+        padding: 0; /* Remove unnecessary padding */
+    }
 }
 
-.left-section.slide-in {
-    animation: slideIn 2s forwards;
+@media (max-width: 600px) {
+    .page-container {
+        gap: 10px; /* Minimal gap for mobile devices */
+        padding: 10px 5px; /* Compact padding */
+    }
+
+    .left-section,
+    .right-section {
+        width: 100%; /* Occupy full width */
+        margin: 0;
+    }
+
+    .left-section h2 {
+        font-size: 35px; /* Further reduce font size */
+        text-align: center; /* Center text */
+    }
+
+    .right-section {
+        padding: 0; /* Remove all padding */
+    }
 }
 
+@media (max-width: 460px) {
+    .page-container {
+        gap: 5px; /* Minimal gap for very small screens */
+        padding: 5px; /* Smaller padding */
+    }
+
+    .left-section h2 {
+        font-size: 30px;
+    }
+
+    .right-section {
+        padding: 0; /* No padding for tiny screens */
+        margin: 0 auto; /* Center form content */
+    }
+
+    form {
+        width: 100%; /* Full-width form */
+    }
+}
+/* Sliding animation */
 @keyframes slideIn {
     from {
-        left: -100%;
+        transform: translateX(-100%);
         opacity: 0;
     }
     to {
-        left: 0;
+        transform: translateX(0);
         opacity: 1;
     }
+}
+
+/* Add the slide-in class for animation */
+.left-section.slide-in {
+    animation: slideIn 1s ease-out forwards;
 }
 

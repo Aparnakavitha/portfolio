@@ -32,6 +32,16 @@ const Navbar = () => {
               Projects
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/education" onClick={toggleMenu} className={({ isActive }) => (isActive ? 'active' : '')}>
+              Education
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/skills" onClick={toggleMenu} className={({ isActive }) => (isActive ? 'active' : '')}>
+              Skills
+            </NavLink>
+          </li>
         </ul>
       </div>
     </div>

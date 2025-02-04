@@ -1,96 +1,134 @@
 .back {
-    background: black;
-    padding: 50px;
-    display: flex;
-    min-height: 100vh;
-    flex-wrap: wrap; /* Ensures wrapping for small screens */
-  }
-  
-  .name {
-    margin-top: 15%;
-    margin-left: 5%;
-  }
-  
-  .hi,
-  .mern {
-    font-size: 40px;
-    font-weight: 500;
-  }
-  
-  .aparna span {
-    background-image: linear-gradient(to right, #EE82EE, #9400D3);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
-  .aparna {
-    font-size: 90px;
-  }
-  
-  /* Buttons container */
-  .buttons {
-    margin-top: 20px;
-    display: flex;
-    gap: 80px;
-    flex-wrap: wrap; /* Enables wrapping for smaller screens */
-  }
-  
-  /* Buttons styling */
-  .btn {
-    padding: 15px 40px ;
-    margin-top: 7%;
-    font-size: 18px;
-    font-weight: bold;
-    border: none;
-    border-radius: 25px; /* Increased border radius */
-    cursor: pointer;
-    text-align: center;
-    transition: transform 0.2s ease, background-color 0.3s ease;
-    background: transparent;
-    background-image: linear-gradient(to right, #EE82EE, #9400D3);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    border: 2px solid #9400D3;
-  }
+  background: black;
+  padding: 50px;
+  display: flex;
+  min-height: 100vh;
+  flex-wrap: wrap; /* Ensures wrapping for small screens */
+}
 
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .name {
+.name {
+  margin-top: 15%;
+  margin-left: 5%;
+}
+
+.hi,
+.mern {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.aparna span {
+  background-image: linear-gradient(to right, #EE82EE, #9400D3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.aparna {
+  font-size: 90px;
+}
+
+/* Buttons container */
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 80px;
+  flex-wrap: wrap; /* Enables wrapping for smaller screens */
+}
+
+/* Buttons styling */
+.btn {
+  padding: 15px 40px ;
+  margin-top: 7%;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px; /* Increased border radius */
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  background: transparent;
+  background-image: linear-gradient(to right, #EE82EE, #9400D3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  border: 2px solid #9400D3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .name {
       margin-top: 10%;
       margin-left: 3%;
-    }
-  
-    .hi,
-    .mern {
+  }
+
+  .hi,
+  .mern {
       font-size: 30px;
-    }
-  
-    .aparna {
+  }
+
+  .aparna {
       font-size: 70px;
-    }
-  
-  
   }
-  
-  .image-content {
-    flex: 1;
-    display: flex;
-    justify-content: center;
+}
+
+/* New media query for smaller screens */
+@media (max-width: 460px) {
+  .name {
+      margin-top: 7%; /* Adjusting margin for smaller screens */
+      margin-left: 0%;
   }
-  
+
+  .hi,
+  .mern {
+      font-size: 25px; /* Smaller text size */
+  }
+
+  .aparna {
+    
+      font-size: 50px; /* Adjusting size for tiny screens */
+      text-align: center; /* Center text on very small screens */
+  }
+
+  /* Adjust buttons for small screens */
+  .buttons {
+      flex-direction: column; /* Stack buttons vertically */
+      gap: 20px; /* Smaller gap between buttons */
+      align-items: center; /* Center buttons */
+  }
+
+  .btn {
+      width: 200px; /* Limit width for small screens */
+      padding: 12px 20px;
+      font-size: 16px; /* Smaller text */
+  }
+
+  /* Image adjustments for smaller screens */
   .image-content img {
-    margin-left: 20%;
-    margin-top: 20%;
-    border-radius:0%;
-    width: 450px;
-    height: 550px;
-    object-fit: cover;
+      margin-left: 0%;
+      margin-top: 1%;
+      width: 300px; /* Reduced width */
+      height: 400px; /* Reduced height */
   }
-  .btn:hover{
-    transform: translateY(-5px)
-  }
- 
+}
+
+.image-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0%;
+}
+
+.image-content img {
+  margin-left: 10%;
+  margin-top: 10%;
+  border-radius: 0%;
+  width: 450px;
+  height: 550px;
+  object-fit: cover;
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+}
 
 .aparna {
   position: relative;
@@ -103,15 +141,119 @@
 
 @keyframes slideIn {
   from {
-    left: -100%;
-    opacity: 0;
+      left: -100%;
+      opacity: 0;
   }
   to {
-    left: 0;
-    opacity: 1;
+      left: 0;
+      opacity: 1;
+  }
+}
+/* Responsive Design for `.back` Section */
+@media (max-width: 1024px) {
+  .back {
+    flex-direction: column; /* Stack elements vertically */
+    padding: 20px;
+    align-items: center; /* Center content horizontally */
+  }
+
+  .name {
+    margin-top: 5%;
+    text-align: center; /* Center text */
+  }
+
+  .hi,
+  .mern {
+    font-size: 35px; /* Adjust text size */
+  }
+
+  .aparna {
+    font-size: 75px; /* Reduce heading size */
+    text-align: center;
+  }
+
+  .buttons {
+    gap: 40px; /* Adjust spacing between buttons */
+  }
+
+  .btn {
+    padding: 12px 30px; /* Adjust button padding */
+    font-size: 16px; /* Reduce button font size */
+  }
+
+  .image-content img {
+    margin-top: 10px;
+    width: 400px; /* Adjust image size */
+    height: 500px;
   }
 }
 
+@media (max-width: 768px) {
+  .name {
+    margin-top: 8%;
+    text-align: center;
+  }
 
+  .hi,
+  .mern {
+    font-size: 30px;
+  }
 
-  
+  .aparna {
+    font-size: 60px;
+    text-align: center;
+  }
+
+  .buttons {
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 20px;
+    align-items: center; /* Center buttons */
+  }
+
+  .btn {
+    width: 180px; /* Adjust button width */
+  }
+
+  .image-content img {
+    width: 300px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 460px) {
+  .back {
+    padding: 10px;
+    min-height: auto; /* Remove fixed height */
+  }
+
+  .name {
+    margin-top: 5%;
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .hi,
+  .mern {
+    font-size: 25px;
+  }
+
+  .aparna {
+    font-size: 45px;
+  }
+
+  .buttons {
+    gap: 15px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .image-content img {
+    margin: 0 auto;
+    width: 250px;
+    height: 350px;
+  }
+}
+

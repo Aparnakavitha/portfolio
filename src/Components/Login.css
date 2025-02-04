@@ -1,0 +1,84 @@
+/* Basic styles for the entire page (adjust as needed) */
+body {
+  
+  justify-content: center; /* Center horizontally */
+ 
+}
+
+.login-container {
+  display: flex;
+  justify-content: center; /* Center the login box */
+  align-items: center;
+  width: 100%; /* Occupy full width on larger screens */
+  max-width: 400px; /* Limit width on larger screens */
+  padding: 20px;
+}
+
+.login {
+  background-color: #282828; /* Darker background for login box */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  width: 100%; /* Occupy full width within the container */
+  text-align: center; /* Center text within login box */
+}
+
+.login h1 {
+  color: #e0e0e0;
+  margin-bottom: 20px;
+}
+
+.error-message {
+  color: #d33; /* Red error message */
+  margin-bottom: 10px;
+}
+
+.login input {
+  width: calc(100% - 22px); /* Account for padding and border */
+  padding: 12px;
+  margin-bottom: 15px;
+  background-color: #333; /* Darker input background */
+  border: 1px solid #444; /* Darker border */
+  color: #e0e0e0;
+  border-radius: 5px;
+  box-sizing: border-box; /* Include padding and border in width */
+}
+
+.login input:focus {
+  outline: none; /* Remove default focus outline */
+  border-color: #007bff; /* Highlight border on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.2); /* Add a subtle glow */
+}
+
+
+.login button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff; /* Blue button */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 400px) { /* Adjust breakpoint as needed */
+  .login-container {
+    padding: 10px; /* Reduce padding on smaller screens */
+  }
+
+  .login {
+    padding: 20px; /* Reduce padding inside login box */
+  }
+
+  .login input,
+  .login button {
+    padding: 10px; /* Reduce padding for form elements */
+    font-size: 14px; /* Slightly smaller font size */
+  }
+}

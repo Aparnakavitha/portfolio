@@ -1,209 +1,125 @@
 .about-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100vh; /* Full viewport height */
-    padding: 40px;
-    
-    /* background-color: #f7f7f7; */
-     /* Light background color for contrast */
-  }
-  
-  .left-sections {
-    margin-bottom: 600px;
-    flex: 1;
-    padding: 1px;
-  }
-  .left-sections img{
-   width: 800px;
-  }
-  
-  .profile-image {
-    width: 100%;
-    height: auto;
-    border-radius: 10px; /* Optional, for rounded corners */
-  }
-  
-  .right-section {
-    flex: 2;
-    padding: 20px;
-  }
-  
-  .intro {
-    font-size: 18px;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  .intro span{
-    font-size: 2em; 
-    margin-top: 20px; 
-    background-image: linear-gradient(to right, #EE82EE, #9400D3);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 90px;
-    font-weight: 600;
-  }
-  
-  .highlighted-text {
-    font-size: 30px;
-    font-weight: 700;
-    background-image: linear-gradient(to right, #EE82EE, #9400D3);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; /* Highlight color for the first sentence */
-  }
-  
-  .right-section p {
-    font-size: 20px;
-    color:white;
-    line-height: 1.6;
-
-  }
-  
-  .right-section p:not(:first-child) {
-    margin-top: 20px;
-  }
-
-  
-  
- 
-  .footer {
-    display: flex;
-    justify-content: center; /* Center the icons horizontally */
-    align-items: center;    /* Vertically align the icons */
-    gap: 50px;              /* Space between the icons */
-    flex-wrap: nowrap;      /* Prevent icons from wrapping */
-    margin-top: 100px;      /* Add spacing above the footer */
-    padding: 15px 0;        /* Padding for top and bottom */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  padding: 40px;
 }
 
-.social-icon {
-    font-size: 50px;        /* Increased size of the icons */
-    color: white;          /* Default white color for the icons */
-    transition: color 0.3s ease, transform 0.3s ease; /* Smooth hover transition */
+/* Left Section */
+.left-sections {
+  margin-bottom: 600px;
+  flex: 1;
+  padding: 1px;
 }
 
-.social-icon:hover {
-       /* Slight reddish tint for all icons on hover */
-    transform: scale(1.2);  /* Enlarge slightly on hover */
-   background-image: linear-gradient(to right, #EE82EE, #9400D3);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+.left-sections img {
+  width: 800px;
 }
 
-
-.highlighted-text:hover {
-  transform: translateY(-5px); /* Raises the text a little */
-    color: #fff; /* Changes the color to white on hover */
-    
+.profile-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* Optional, for rounded corners */
 }
-/* Add this at the end of your existing CSS */
 
-/* Add this at the end of your existing CSS */
+/* Right Section */
+.right-section {
+  flex: 2;
+  padding: 20px;
+}
 
-.intro span {
+/* Heading (Sliding Effect) */
+.aparna {
+  font-size: 90px;
+  font-weight: bold;
   position: relative;
   opacity: 0;
+  background-image: linear-gradient(to right, #EE82EE, #9400D3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.intro span.slide-in {
-  animation: slideInFromRight 2s forwards;
+.aparna.slide-in {
+  animation: slideIn 2s forwards;
 }
 
-@keyframes slideInFromRight {
+@keyframes slideIn {
   from {
-    right: -100%;
-    opacity: 0;
+      left: -100%;
+      opacity: 0;
   }
   to {
-    right: 0;
-    opacity: 1;
+      left: 0;
+      opacity: 1;
   }
 }
 
+/* Description */
+.right-section p {
+  font-size: 20px;
+  color: white;
+  line-height: 1.6;
+}
+
+.right-section p:not(:first-child) {
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+
+/* Tablets */
 @media (max-width: 1024px) {
   .about-container {
-    padding: 20px;
-    height: auto; /* Let height adjust dynamically */
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      height: auto;
   }
 
   .left-sections img {
-    max-width: 500px; /* Reduce image size for tablets */
+      max-width: 500px; /* Reduce image size for tablets */
   }
 
-  .intro span {
-    font-size: 2.5rem; /* Slightly smaller font for tablets */
-  }
-
-  .highlighted-text {
-    font-size: 1.5rem;
-  }
-
-  .social-icon {
-    font-size: 35px; /* Reduce size of icons for tablets */
+  .aparna {
+      font-size: 70px; /* Reduce heading size */
   }
 }
 
-/* Mobile Devices (max-width: 768px) */
+/* Mobile Devices */
 @media (max-width: 768px) {
   .about-container {
-    flex-direction: column; /* Stack sections vertically */
-    align-items: center; /* Center align items */
-    height: auto;
+      flex-direction: column; /* Stack sections vertically */
+      align-items: center;
+      height: auto;
   }
 
   .left-sections {
-    margin-bottom: 20px;
-    text-align: center;
+      margin-bottom: 20px;
+      text-align: center;
   }
 
   .left-sections img {
-    max-width: 350px; /* Further reduce image size */
+      max-width: 350px; /* Further reduce image size */
   }
 
-  .intro span {
-    font-size: 2rem; /* Smaller font size for mobiles */
-  }
-
-  .highlighted-text {
-    font-size: 1.2rem;
-  }
-
-  .social-icon {
-    font-size: 30px; /* Smaller icons for mobiles */
-  }
-
-  .footer {
-    gap: 20px;
+  .aparna {
+      font-size: 60px;
   }
 }
 
-/* Small Mobile Devices (max-width: 480px) */
+/* Small Mobile Devices */
 @media (max-width: 480px) {
   .about-container {
-    padding: 10px;
+      padding: 10px;
   }
 
   .left-sections img {
-    max-width: 250px; /* Smaller image for very small screens */
+      max-width: 250px; /* Smaller image for very small screens */
   }
 
-  .intro span {
-    font-size: 1.5rem;
-  }
-
-  .highlighted-text {
-    font-size: 1rem;
-  }
-
-  .social-icon {
-    font-size: 25px; /* Tiny icons for very small devices */
-  }
-
-  .footer {
-    gap: 15px;
+  .aparna {
+      font-size: 45px;
+      text-align: center;
   }
 }
-
-
-   
-  
