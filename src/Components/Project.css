@@ -1,13 +1,13 @@
 /* Projects.css */
 .projects-container {
-    display: flex;
+    /* display: flex; */
     justify-content: flex-start;  /* Align items to the left */
     align-items: flex-start;      /* Align items at the top */
     gap: 200px;
     padding: 50px;
     background-color: #000;       /* Background color is black */
     flex-wrap: wrap;   
-    margin-top: 10%;           /* Allow wrapping of cards */
+    margin-top: 0%;           /* Allow wrapping of cards */
     margin-left: 0%;
   }
   

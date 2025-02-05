@@ -8,9 +8,10 @@ const About = () => {
   useEffect(() => {
     axios.get('http://localhost:8080/api/about')
       .then(response => {
-        if (response.data.length > 0) {
+        
           setAboutData(response.data[0]);
-        }
+        
+        
       })
       .catch(error => console.error('Error fetching about data:', error));
   }, []);

@@ -69,18 +69,6 @@ const fetchUsers = async () => {
   } catch (error) { console.error("Error fetching users:", error); }
 };
 
-// const handleDelete = async (type, id) => {
-// try {
-// await axios.delete(`http://localhost:8080/api/${type}/${id}`);
-// if (type === "education") fetchEducations();
-// else if (type === "skills") fetchSkills();
-// else if (type === "project") fetchProjects();
-// else if (type === "auth/delete") fetchUsers();
-// else fetchAbout();
-// } catch (error) {
-// console.error("Error deleting:", error);
-// }
-// };
 
 const handleDelete = async (type, id) => {
   try {
@@ -105,10 +93,23 @@ const handleDelete = async (type, id) => {
 };
 
 
+
+
 const handleEdit = (type, item) => {
-setFormData({ type, id: item.id, name: item.name || "", description: item.description || "", image:item.image||null });
-setIsEditing(true);
+  setIsEditing(true);
+  setFormData({
+      type,
+      id: item.id,
+      name: item.name || "",
+      description: item.description || "",
+      image: null, // Reset new image input
+      existingImage: item.image || "", // Store existing image path
+      username: item.username || "",
+      password: "", // Don't pre-fill password for security
+  });
 };
+
+
 
 const handleAddNew = (type) => {
 setFormData({ type, id: null, name: "", description: "", image: null,username:"",password:"" });
@@ -121,48 +122,104 @@ setFormData({ ...formData, image: file });
 };
 
 
+// const handleSubmit = async (e) => {
+//   e.preventDefault();
+
+//   try {
+//       let response;
+//       if (formData.type === "users") {
+//           // Send JSON for users
+//           const userPayload = { 
+//               username: formData.username, 
+//               password: formData.password 
+//           };
+
+//           response = await axios.post("http://localhost:8080/api/auth/register", userPayload, {
+//               headers: { "Content-Type": "application/json" },
+//           });
+//       } else {
+//           // Send multipart form data for other types
+//           const formDataToSend = new FormData();
+//           formDataToSend.append("name", formData.name);
+//           if (formData.description) {
+//               formDataToSend.append("description", formData.description);
+//           }
+//           if (formData.image) {
+//               formDataToSend.append("image", formData.image);
+//           }
+
+//           response = await axios.post(`http://localhost:8080/api/${formData.type}`, formDataToSend, {
+//               headers: { "Content-Type": "multipart/form-data" },
+//           });
+//       }
+
+//       console.log("Response:", response.data);
+
+//       setFormData({ type: "", id: null, name: "", description: "", image: null, username: "", password: "" });
+//       setIsEditing(false);
+//       fetchEducations();
+//       fetchSkills();
+//       fetchAbout();
+//       fetchProjects();
+//       fetchUsers();
+//   } catch (error) {
+//       console.error("Error saving:", error);
+//   }
+// };
+
 const handleSubmit = async (e) => {
   e.preventDefault();
 
   try {
-      let response;
-      if (formData.type === "users") {
-          // Send JSON for users
-          const userPayload = { 
-              username: formData.username, 
-              password: formData.password 
-          };
+    let response;
+    const formDataToSend = new FormData();
+    
+    if (formData.name) formDataToSend.append("name", formData.name);
+    if (formData.description) formDataToSend.append("description", formData.description);
+    if (formData.image) formDataToSend.append("image", formData.image);
 
-          response = await axios.post("http://localhost:8080/api/auth/register", userPayload, {
-              headers: { "Content-Type": "application/json" },
-          });
+    if (formData.type === "users") {
+      // Handle user registration separately
+      const userPayload = { 
+        username: formData.username, 
+        password: formData.password 
+      };
+      
+      response = await axios.post("http://localhost:8080/api/auth/register", userPayload, {
+        headers: { "Content-Type": "application/json" },
+      });
+    } else {
+      if (formData.id) {
+        // Update existing data with PUT request
+        response = await axios.put(
+          `http://localhost:8080/api/${formData.type}/${formData.id}`, 
+          formDataToSend, 
+          { headers: { "Content-Type": "multipart/form-data" } }
+        );
       } else {
-          // Send multipart form data for other types
-          const formDataToSend = new FormData();
-          formDataToSend.append("name", formData.name);
-          if (formData.description) {
-              formDataToSend.append("description", formData.description);
-          }
-          if (formData.image) {
-              formDataToSend.append("image", formData.image);
-          }
-
-          response = await axios.post(`http://localhost:8080/api/${formData.type}`, formDataToSend, {
-              headers: { "Content-Type": "multipart/form-data" },
-          });
+        // Add new data with POST request
+        response = await axios.post(
+          `http://localhost:8080/api/${formData.type}`, 
+          formDataToSend, 
+          { headers: { "Content-Type": "multipart/form-data" } }
+        );
       }
+    }
 
-      console.log("Response:", response.data);
+    console.log("Response:", response.data);
 
-      setFormData({ type: "", id: null, name: "", description: "", image: null, username: "", password: "" });
-      setIsEditing(false);
-      fetchEducations();
-      fetchSkills();
-      fetchAbout();
-      fetchProjects();
-      fetchUsers();
+    // Reset the form
+    setFormData({ type: "", id: null, name: "", description: "", image: null, username: "", password: "" });
+    setIsEditing(false);
+
+    // Refetch data to see changes
+    fetchEducations();
+    fetchSkills();
+    fetchAbout();
+    fetchProjects();
+    fetchUsers();
   } catch (error) {
-      console.error("Error saving:", error);
+    console.error("Error saving:", error);
   }
 };
 
@@ -428,7 +485,17 @@ Logout
 <label>Description:</label>
 <textarea value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })} required></textarea>
 <label>Image:</label>
-<input type="file" onChange={handleImageChange} required />
+   
+    {/* Show existing image if editing */}
+    {isEditing && formData.existingImage && (
+        <img
+            src={`http://localhost:8080/uploads/${formData.existingImage}`}
+            alt="Existing"
+            style={{ width: "100px", height: "100px", marginBottom: "10px" }}
+        />
+    )}
+<input type="file" onChange={handleImageChange} required={!isEditing} />
+
 </>
 )}
 
@@ -437,15 +504,25 @@ Logout
 
 {["skills", "education"].includes(formData.type) && (
 <>
-<label>Name:</label>
-<input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} required />
-<label>Image:</label>
-<input type="file" onChange={handleImageChange}
-accept="image/*"
-name="image"
-required />
+    <label>Name:</label>
+    <input type="text" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
+
+    <label>Image:</label>
+    
+    {/* Show existing image if editing */}
+    {isEditing && formData.existingImage && (
+        <img
+            src={`http://localhost:8080/uploads/${formData.existingImage}`}
+            alt="Existing"
+            style={{ width: "100px", height: "100px", marginBottom: "10px" }}
+        />
+    )}
+
+    {/* Allow new image upload, but it's optional when editing */}
+    <input type="file" onChange={handleImageChange} required={!isEditing} />
 </>
 )}
+
 
 {formData.type === "project" && (
 <>
@@ -454,7 +531,18 @@ required />
 <label>Description:</label>
 <textarea value={formData.description} onChange={(e) => setFormData({ ...formData, description: e.target.value })} required></textarea>
 <label>Image:</label>
-<input type="file" onChange={handleImageChange} required />
+
+   
+    {/* Show existing image if editing */}
+    {isEditing && formData.existingImage && (
+        <img
+            src={`http://localhost:8080/uploads/${formData.existingImage}`}
+            alt="Existing"
+            style={{ width: "100px", height: "100px", marginBottom: "10px" }}
+        />
+    )}
+<input type="file" onChange={handleImageChange} required={!isEditing} />
+
 </>
 )}
 
